@@ -17,7 +17,7 @@
                     v-bind:item="item"
                     v-bind:key="item.id"
                 ></screen>
-                <div class="v-input-component">
+                <div class="v-input-component ">
                     <form v-on:submit.prevent="submitCommand" class="v-form">
                         User$
                         <input v-model="message" class="v-input">
@@ -28,6 +28,8 @@
         </div>
 
 
-        <script src="index.js"></script>
+        <script src="index.js">
+            console.log(this);
+        </script>
     </body>
 </html>

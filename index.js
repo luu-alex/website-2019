@@ -16,13 +16,19 @@ Vue.component('v-submit', {
     }
 })
 
+Vue.component('v-output', {
+    props: ['inp'],
+    template:`<p>{{inp.text}}</p>`
+})
+
 var app = new Vue({
   el: '#app',
   data: {
-    list: [
-    ],
+    list: [],
     message: '',
-    nextId: 0
+    nextId: 0,
+    inp: ''
+
 },
 methods: {
     submitCommand: function() {
@@ -31,6 +37,14 @@ methods: {
             text: 'User$ '+this.message
         })
         this.message = ''
+    },
+    changeInp: function(char) {
+        this.inp += char;
     }
-}
+},
+mounted() {
+    window.addEventListener("keypress", function(e) {
+      console.log(String.fromCharCode(e.keyCode));
+    }.bind(this));
+  }
 })
