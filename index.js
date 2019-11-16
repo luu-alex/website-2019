@@ -40,11 +40,14 @@ methods: {
     },
     changeInp: function(char) {
         this.inp += char;
+        console.log(this.inp);
     }
 },
 mounted() {
     window.addEventListener("keypress", function(e) {
       console.log(String.fromCharCode(e.keyCode));
+      this.changeInp(String.fromCharCode(e.keyCode));
+
     }.bind(this));
   }
 })
