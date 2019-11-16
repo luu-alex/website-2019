@@ -2,12 +2,31 @@
 <html>
     <head>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
         <title> Alex Luu - Resume </title>
     </head>
-    <body>
+    <body class="v-body">
         <div id="app">
-            {{ message }}
+            <div id="tab" class="v-tab">
+                Alex Luu Resume
+            </div>
+            <div id="window" class="v-screen">
+                <screen
+                    v-for="item in list"
+                    v-bind:item="item"
+                    v-bind:key="item.id"
+                ></screen>
+                <div class="v-input-component">
+                    <form v-on:submit.prevent="submitCommand" class="v-form">
+                        User$
+                        <input v-model="message" class="v-input">
+                    </form>
+                </div>
+            </div>
+
         </div>
+
 
         <script src="index.js"></script>
     </body>

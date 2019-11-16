@@ -1,0 +1,52 @@
+.v-unordered-list {
+    margin: 0px;
+}
+
+.v-tab {
+    display:flex;
+    justify-content: center;
+    background-color:#dbdbdb;
+    border-style:solid;
+    border-width:1px;
+    font-size:16px;
+    font-family:"lato";
+
+}
+
+.v-screen {
+    font-size: 20px;
+    background-color: black;
+    height: 90%;
+    position: aboslute;
+    font-family:"lato";
+    color:#45ff6e;
+    border-style:none;
+}
+
+.v-input {
+    height: 10%;
+    width: 90%;
+    font-family:"lato";
+    display:flex;
+}
+
+.v-body {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.v-input-component {
+
+}
+
+.v-form {
+    display:flex
+}
+
+.v-input-button {
+    width:8%;
+}
+#app{
+    height:100%;
+}
