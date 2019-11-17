@@ -22,11 +22,7 @@ var app = new Vue({
             text:'Welcome! My name is Alex Luu and I am a Third year UofT student studying Computer Science, I\'m currently interning at Toronto start up Loopio. '
         }, 
         {
-            id:2, 
-            text:'I\'m a passionate programmer attending Hackathons such as Uoft Hacks and Hack the North and on my free time and love bringing ideas to life through side projects' 
-        },
-        {
-            id:3,
+            id:2,
             text:"For more commands enter 'help'"
         }
     ],
@@ -37,6 +33,9 @@ var app = new Vue({
 },
 methods: {
     submitCommand: function() {
+        if (this.inp) {
+            this.commandList()
+        }
         this.list.push({
             id: this.nextId++,
             text: 'User$ '+this.inp
@@ -51,6 +50,16 @@ methods: {
     removeLastInp: function() {
         if(this.inp.length > 0) {
             this.inp = this.inp.substring(0, this.inp.length - 1);
+        }
+    },
+    commandList: function() {
+        if (this.inp == "help") {
+            this.list.push(
+                {
+                    id: this.nextId++,
+                    text:  'I\'m a passionate programmer attending Hackathons such as Uoft Hacks and Hack the North and on my free time and love bringing ideas to life through side projects' 
+                }
+            )
         }
     }
 },
