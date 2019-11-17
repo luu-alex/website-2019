@@ -4,13 +4,23 @@
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <link rel="stylesheet" href="styles.css">
         <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/77943ba201.js" crossorigin="anonymous"></script>
+ 
         <title> Alex Luu - Resume </title>
     </head>
     <body class="v-body">
         <div id="app">
             <div id="tab" class="v-tab">
-                Alex Luu Resume
+                <v-mac-tabs>
+                </v-mac-tabs>
+                <div>
+                    <p>
+                        Alex Luu Resume
+                    </p>
+                </div>
+                
             </div>
+            
             <div id="window" class="v-screen">
                 <screen
                     v-for="item in list"
@@ -18,10 +28,11 @@
                     v-bind:key="item.id"
                 ></screen>
                 <div class="v-input-component ">
-                    <form v-on:submit.prevent="submitCommand" class="v-form">
-                        User$
-                        <input v-model="message" class="v-input">
-                    </form>
+                    <div>
+                        <p class="v-inline begin">User$ </p>
+                        <p class="v-inline"> {{inp}}</p>
+                        <p class="v-inline blink_me"> |</p>
+                    </div>
                 </div>
             </div>
 
