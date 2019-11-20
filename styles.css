@@ -2,8 +2,28 @@ p {
     margin:0;
 }
 
+.left {
+    padding-left: 7%;
+}
+
+.s-padding {
+    padding: 2%;
+}
+
+.flex {
+    display: flex;
+}
+
 .begin {
     padding-right:5px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    background-color:#EEEEEE;
+    height:5%
 }
 
 .v-inline {
@@ -20,18 +40,20 @@ p {
     background-color:#dbdbdb;
     border-style:solid;
     border-width:1px;
-    font-size:20px;
+    font-size:100%;
     font-family:"lato";
+    height: 4%;
 }
 
 .v-screen {
     font-size: 20px;
     background-color: black;
-    height: 90%;
+    height: 65%;
     position: aboslute;
     font-family:"lato";
     color:white;
     border-style:none;
+    margin: 0px 8% 0px 8%;
 }
 
 .v-input {
@@ -50,6 +72,7 @@ p {
     position: absolute;
     width: 100%;
     margin:0px;
+    font-family: 'lato'
 }
 
 .v-input-component {
@@ -62,11 +85,15 @@ p {
 
 .v-output {
     color:white;
-    height:24px;
+    height:8%;
 }
 
 .v-input-button {
     width:8%;
+}
+
+.v-tab {
+    margin:5% 8% 0 8%;
 }
 #app{
     height:100%;
@@ -74,10 +101,9 @@ p {
 .blink_me {
     animation: blinker 1s linear infinite;
   }
-  
+
   @keyframes blinker {
     50% {
       opacity: 0;
     }
   }
-

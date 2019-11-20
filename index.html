@@ -5,23 +5,38 @@
         <link rel="stylesheet" href="styles.css">
         <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/77943ba201.js" crossorigin="anonymous"></script>
- 
+
         <title> Alex Luu - Resume </title>
     </head>
     <body class="v-body">
         <div id="app">
+            <div id="header" class ="header s-padding">
+                <div class="padding">
+                </div>
+                <div class="flex padding">
+                    <div>
+                        <p>
+                            Resume
+                        </p>
+                    </div>
+                    <div class= "left">
+                        <p>
+                            About me
+                        </p>
+                    </div>
+                </div>
+            </div>
             <div id="tab" class="v-tab">
                 <v-mac-tabs>
                 </v-mac-tabs>
-                <div>
+            <div>
                     <p>
-                        Alex Luu Resume
+                        Alex Luu's Console
                     </p>
-                </div>
-                <div></div>
-                
             </div>
-            
+                <div></div>
+            </div>
+
             <div id="window" class="v-screen">
                 <screen
                     v-for="item in list"
