@@ -15,14 +15,14 @@
                 </div>
                 <div class="flex padding">
                     <div>
-                        <p>
+                        <a href="https://github.com/luu-alex/website-2019/blob/master/Resume.pdf">
                             Resume
-                        </p>
+                        </a>
                     </div>
                     <div class= "left">
-                        <p>
-                            About me
-                        </p>
+                        <a href="https://github.com/luu-alex">
+                            Github
+                        </a>
                     </div>
                 </div>
             </div>
@@ -43,11 +43,13 @@
                     v-bind:item="item"
                     v-bind:key="item.id"
                 ></screen>
-                <div class="v-input-component ">
-                    <div>
-                        <p class="v-inline begin">User$ </p>
-                        <p class="v-inline"> {{inp}}</p>
-                        <p class="v-inline blink_me"> |</p>
+                <div v-if="visibleInput">
+                    <div class="v-input-component ">
+                        <div>
+                            <p class="v-inline begin">User$ </p>
+                            <p class="v-inline"> {{inp}}</p>
+                            <p class="v-inline blink_me"> |</p>
+                        </div>
                     </div>
                 </div>
             </div>

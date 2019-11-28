@@ -22,7 +22,10 @@ TimerQueue.prototype.launchNextTask = function(){
   var nextTask = this.tasks.shift();
 
   // There's no more tasks, clean up.
-  if(!nextTask) return this.clear();
+  if(!nextTask) {
+      clear = true;
+      return this.clear()
+  };
 
   // Otherwise, schedule the next task.
   this.currentTimer = setTimeout(function(){
@@ -37,25 +40,20 @@ TimerQueue.prototype.launchNextTask = function(){
 
 TimerQueue.prototype.clear = function(){
   if (this.currentTimer) clearTimeout(this.currentTimer);
-
   // Timer clears only destroy the timer. It doesn't null references.
   this.currentTimer = null;
 
   // Fast way to clear the task queue
   this.tasks.length = 0;
+
 };
 
 var queue = new TimerQueue();
 var id = 1;
 var phrases = {
     help : "this is the help tab!",
-    about : "this is the about tab!"
-}
-
-function delay(t, v) {
-   return new Promise(function(resolve) {
-       setTimeout(resolve.bind(null, v), t)
-   });
+    about : "this is the about tab!",
+    clear : "clear"
 }
 
 Vue.component('screen', {
@@ -77,8 +75,8 @@ var app = new Vue({
   data: {
     list: [],
     nextId: 3,
-    inp: ''
-
+    inp: '',
+    visibleInput: true
 },
 methods: {
     submitCommand: function() {
@@ -115,11 +113,12 @@ methods: {
             this.pushPhrase("This site was built using Vue.js and Javascript by me :), the source code is available on my Github.");
             this.pushPhrase("I use a queue to push strings that will show up on to this screen!");
             this.pushPhrase("And I use key press events to display text when you type");
+        } else if (phrase == "clear") {
+            this.clear()
         }
     },
     pushPhrase: function(phrase, delay = 1000) {
         var lst = this.list;
-
         queue.addTask(function () {
             lst.push(
                 {
@@ -128,14 +127,21 @@ methods: {
                 }
             )
         }, delay);
-
+    },
+    showInp: function() {
+        this.visibleInput = true;
+    },
+    clear: function() {
+        this.list.length = 0;
     }
 },
 mounted() {
     window.addEventListener("keypress", function(e) {
         if (e.keyCode !=13){
           this.changeInp(String.fromCharCode(e.keyCode));
-          console.log(String.fromCharCode(e))
+        }
+        if (this.list.length > 11){
+            this.list.splice(0,1)
         }
     }.bind(this));
 
@@ -149,5 +155,6 @@ mounted() {
       this.pushPhrase('Welcome!');
       this.pushPhrase('My name is Alex Luu and I am a Third year UofT student studying Computer Science');
       this.pushPhrase("For more commands enter 'help'", 1000);
+      this.queue = true
   }
 })
