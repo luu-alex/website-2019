@@ -54,7 +54,8 @@ var phrases = {
     help : "1",
     about : "1",
     clear : "1",
-    skills: "1"
+    skills: "1",
+    how: "1"
 }
 
 Vue.component('screen', {
@@ -126,7 +127,7 @@ methods: {
             this.pushPhrase("My resume and open source projects are available above");
         }
     },
-    pushPhrase: function(phrase, delay = 1000) {
+    pushPhrase: function(phrase, delay = 500) {
         var lst = this.list;
         queue.addTask(function () {
             lst.push(
