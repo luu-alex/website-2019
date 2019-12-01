@@ -51,9 +51,10 @@ TimerQueue.prototype.clear = function(){
 var queue = new TimerQueue();
 var id = 1;
 var phrases = {
-    help : "this is the help tab!",
-    about : "this is the about tab!",
-    clear : "clear"
+    help : "1",
+    about : "1",
+    clear : "1",
+    skills: "1"
 }
 
 Vue.component('screen', {
@@ -80,8 +81,9 @@ var app = new Vue({
 },
 methods: {
     submitCommand: function() {
-        if (phrases.hasOwnProperty(this.inp)) {
-            this.commandList(this.inp);
+        var input = this.inp.toLowerCase();
+        if (phrases.hasOwnProperty(input)) {
+            this.commandList(input);
         }
         this.list.push({
             id: id++,
@@ -100,10 +102,11 @@ methods: {
         }
     },
     commandList: function(phrase) {
-        phrase = phrase.toLowerCase();
         if (phrase == "help") {
             this.pushPhrase("To learn more about me enter 'about'");
-            this.pushPhrase("If you are curous on how I built this, enter 'how'");
+            this.pushPhrase("If you are curious on how I built this, enter 'how'");
+            this.pushPhrase("Enter Skills to see the languages I am familiar with and my abilities")
+            this.pushPhrase("To clear the screen, enter 'clear'");
         } else if (phrase == "about") {
             this.pushPhrase("I currently intern at Loopio, a start up in Toronto as a full-stack Software developer");
             this.pushPhrase("I worked for the University of Toronto as a Teaching Assistant for Computer Science");
@@ -115,6 +118,12 @@ methods: {
             this.pushPhrase("And I use key press events to display text when you type");
         } else if (phrase == "clear") {
             this.clear()
+        } else if (phrase == "skills") {
+            this.clear();
+            this.pushPhrase("Technical Skills: Python, Javascript, Java, C++, React, PHP, SQL, MongoDB");
+            this.pushPhrase("Other: Git, Agile, Scrum");
+            this.pushPhrase("Soft skills: Leadership, Initiative, Grit");
+            this.pushPhrase("My resume and open source projects are available above");
         }
     },
     pushPhrase: function(phrase, delay = 1000) {
@@ -153,7 +162,7 @@ mounted() {
         }
       }.bind(this));
       this.pushPhrase('Welcome!');
-      this.pushPhrase('My name is Alex Luu and I am a Third year UofT student studying Computer Science');
+      this.pushPhrase('My name is Alex Luu, I am a fullstack developer and a UofT student studying Computer Science');
       this.pushPhrase("For more commands enter 'help'", 1000);
       this.queue = true
   }
