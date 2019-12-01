@@ -113,7 +113,7 @@ methods: {
             this.pushPhrase("I've attended Hack the North and UofT Hacks, they were both great opportunities meeting amazing people");
             this.pushPhrase("And was able to bring some amazing ideas to life :)");
         } else if (phrase == "how") {
-            this.pushPhrase("This site was built using Vue.js and Javascript by me :), the source code is available on my Github.");
+            this.pushPhrase("This site was built using Vue.js and Javascript by me :) the source code is available on my Github.");
             this.pushPhrase("I use a queue to push strings that will show up on to this screen!");
             this.pushPhrase("And I use key press events to display text when you type");
         } else if (phrase == "clear") {
