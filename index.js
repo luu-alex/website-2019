@@ -67,8 +67,8 @@ Vue.component('v-mac-tabs', {
     template: `
         <div>
             <i class="fas fa-circle" style="color:red"></i>
-            <i class="fas fa-circle" style="color:green"></i>
-            <i class="fas fa-circle" style="color:grey"></i>
+            <i class="fas fa-circle" style="color:#FFC041"></i>
+            <i class="fas fa-circle" style="color:#8FD55F"></i>
         </div>
     `
 })
